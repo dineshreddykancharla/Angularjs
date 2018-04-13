@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>ng-repeat Demo</title>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+	<script>
+		var mymodule=/**
+		* mymodule Module
+		*
+		* Description
+		*/
+		angular.module('mymodule', []).controller('mycontroller',  function($scope){
+			$scope.company=[
+			{name:"IBM",
+			location:[{loc:"chennai"},{loc:"hyderabad"}]
+			},
+			{name:"csc",
+			location:[{loc:"pune"},{loc:"Delhi"}]
+			},
+			{name:"tcs",
+			location:[{loc:"hyd"},{loc:"banglore"}] 
+			}
+			];
+			
+			
+		});
+	</script>
+</head>
+<body ng-app="mymodule" ng-controller="mycontroller">
+	<ul  >
+		<li ng-repeat="comp in company">{{comp.name}}
+		<ul>
+			<li ng-repeat="loc in comp.location">{{loc.loc}}, index={{$index}}, parentIndex={{$parent.$index}}</li>
+			
+		</ul>
+		</li>
+</body>
+</html>

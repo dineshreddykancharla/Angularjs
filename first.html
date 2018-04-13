@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>angular package</title>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+	<script >
+		var myapp=angular.module("myapp",[]);
+		myapp.controller('mycontroller',function($scope){
+			$scope.message="welcome to angular";
+			
+		});
+		myapp.controller('mycontroller1',  function($scope){
+			$scope.message="hello";
+		});
+	</script>
+</head>
+<body ng-app="myapp" >
+	<div ng-controller="mycontroller">
+		{{message}}
+	</div>
+	<div  ng-controller="mycontroller1">
+		{{message}}
+	</div>
+	
+</body>
+</html>

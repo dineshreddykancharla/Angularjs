@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>ng- conttoller Demo</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+	<script>
+		var mymodule= angular.module('mymodule', []);
+		mymodule.controller('mycontroller',  function($scope){
+			$scope.employee={
+				name:"sam",
+				age:"30"
+			}
+
+			
+		})
+
+	</script>
+	<style >
+		table{
+			border: 1px solid black;
+			border-collapse: collapse;
+		}
+	</style>
+</head>
+<body ng-app="mymodule">
+	<div ng-controller="mycontroller">
+		<table>
+			<tr>
+				<td>Employee Name</td>
+				<td>age</td>
+			</tr>
+			<tr>
+				<td>{{employee.name}}</td>
+				<td>{{employee.age}}</td>
+			</tr>
+		</table>
+	</div>
+
+	
+</body>
+</html>

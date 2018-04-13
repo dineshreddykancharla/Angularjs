@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Angular ng-src Demo</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+	<script>
+		var mymodule=angular
+		.module('mymodule',[])
+		.controller('mycontroller', function($scope){
+			$scope.country={
+				name:"usa",
+				code:"12345",
+				imagepath:"bulb_off.jpg"
+			}
+			
+		});
+</script>
+</head>
+<body ng-app="mymodule">
+	<div ng-controller="mycontroller">
+		{{country.name}} <br>
+		{{country.code}} <br>
+		<!-- <img src="{{country.imagepath}}" alt="flag"> -- if this is used it will display flag but it will throw file not found exception. one requesr is sent with {{country.imagepath}} other with its value . second img is displayed ,first one throws the error-->
+		 <img ng-src="{{country.imagepath}}" alt="flag">
+
+	</div>
+	
+</body>
+</html>

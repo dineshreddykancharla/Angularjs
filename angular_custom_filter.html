@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Amgular custom filter Demo</title>
+	<link rel="stylesheet" href="table_style.css">
+	<script src="angular.js"></script>
+		<script>
+		var myapp= angular.module("mymodule",[])
+		.filter("gender",function(){
+				return function(gender)
+				{
+					switch(parseInt(gender)) {
+						case 1:
+							return "Male";
+
+						case 2:
+							return "Female";
+						case 3:
+							return "not Disclosed";
+
+						
+
+						
+					}
+
+				}
+			})
+
+		.controller('mycontroller',function($scope){
+			var employee_details=[
+			{name:"arjun",gender:"1",salary:25000.789,dob:new Date("14 may 1994")},
+			{name:"Amit",gender:"1",salary:250000,dob:new Date("14 dec 1992")},
+			{name:"sita",gender:"2",salary:100000,dob:new Date("23 sep 2000")},
+			{name:"james namp",gender:"3",salary:3005000,dob:new Date("14 oct 1990")},
+			{name:"stella mary",gender:"2",salary:985000,dob:new Date("14 jan 1994")}
+			];
+			$scope.emplist=employee_details;
+			
+		});
+	</script>
+</head>
+<body ng-app="mymodule">
+	<div ng-controller="mycontroller">
+		<table>
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>Gender</th>
+					<th>Salary</th>
+					<th>Date of Birth</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="emp in emplist">
+					<td>{{emp.name}}</td>
+					<td>{{emp.gender | gender}}</td>
+					<td>{{emp.salary}}</td>
+					<td>{{emp.dob| date:"dd-MM-yyyy"}}</td>
+				</tr>
+			</tbody>
+		</table>
+
+	</div>
+	
+</body>
+</html>

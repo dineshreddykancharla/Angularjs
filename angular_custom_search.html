@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Angulat js search Demo</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+	<script>
+		var mymodule=angular.module("mymodule",[]).controller('mycontroller', function($scope){
+			var employee_details=[
+			{name:"arjun",age:"25",gender:"Male",salary:25000.789,dob:new Date("14 may 1994")},
+			{name:"Amit",age:"23",gender:"Male",salary:250000,dob:new Date("14 dec 1992")},
+			{name:"sita",age:"18",gender:"FeMale",salary:100000,dob:new Date("23 sep 2000")},
+			{name:"james namp",age:"27",gender:"Male",salary:3005000,dob:new Date("14 oct 1990")},
+			{name:"stella mary",age:"30",gender:"feMale",salary:985000,dob:new Date("14 jan 1994")}
+			];
+			$scope.employees=employee_details;
+			$scope.search=function(item)
+			{
+				if($scope.searchtext==undefined)
+				{
+					return true;
+				}
+				else {
+					if(item.name.toLowerCase().indexOf($scope.searchtext.toLowerCase()) != -1)
+					{
+						return true;
+					}
+				}
+				return false;
+
+			}
+
+			
+		});
+	</script>
+	<style>
+		td,th
+		{
+			border: 1px solid black;
+		}
+		table
+		{
+
+			border-collapse: collapse;
+		}
+		
+			</style>
+</head>
+<body ng-app="mymodule">
+<div ng-controller="mycontroller">
+	<div>
+	<input type="text" placeholder="search employees name" ng-model="searchtext"> 
+
+	<br> <br>
+	</div>
+	<table>
+		<thead>
+			<tr>
+				<th>Name</th>
+				<th>Age</th>
+				<th>Gender</th>
+				<th>Salary</th>
+				<th>Date of Birth</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="e in employees | filter: search">
+				<td>{{e.name}}</td>
+				<td>{{e.age}}</td>
+				<td>{{e.gender}}</td>
+				<td>{{e.salary}}</td>
+				<td>{{e.dob | date:"dd-MM-yyyy"}}</td>
+			</tr>
+		</tbody>
+	</table>
+
+</div>
+	
+</body>
+</html>

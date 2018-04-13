@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>ng-modal example</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+	<script>
+		var mymodule=angular.module("mymodule",[]).controller('mycontroller', function($scope){
+			$scope.message="hello world";
+			$scope.employee={name:"arjun",age:"25",salary:25000}
+
+			
+		});
+	</script>
+</head>
+<body ng-app="mymodule">
+	<div ng-controller="mycontroller">
+		<input type="text" ng-model="message">
+		<div>{{message*3}}</div>
+		<input type="text" ng-model="greet"><!--whenever model is not there angular creates model for us-->
+		<div>{{greet}}</div>
+		<!--this id for js object two way binding-->
+		<table>
+			<tr>
+				<td>name</td>
+				<td>age</td>
+				<td>salary</td>
+			</tr>
+			<tr>
+				<td > <input ng-model="employee.name" type="text"></td>
+				<td><input ng-model="employee.age" type="text"></td>
+				<td><input ng-model="employee.salary" type="text"></td>
+			</tr>
+		</table>
+		<br> <br>
+		<table >
+			<tr>
+				<td>name</td>
+				<td>age</td>
+				<td>salary</td>
+			</tr>
+			<tr>
+				<td>{{employee.name}}</td>
+				<td>{{employee.age}}</td>
+				<td>{{employee.salary}}</td>
+			</tr>
+		</table>
+		
+	</div>
+	
+</body>
+</html>

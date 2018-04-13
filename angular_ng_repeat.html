@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>ng-repeat Demo</title>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+	<script>
+		var mymodule=/**
+		* mymodule Module
+		*
+		* Description
+		*/
+		angular.module('mymodule', []).controller('mycontroller',  function($scope){
+			$scope.employees=[
+			{name:"rahul",age:23,salary:15000},
+			{name:"rajesh",age:30,salary:150000},
+			{name:"somu",age:23,salary:10000},
+			{name:"sita",age:43,salary:50000}
+			];
+			
+		})
+	</script>
+</head>
+<body ng-app="mymodule">
+	<table ng-controller="mycontroller">
+		<tr>
+			<td>Name</td>
+			<td>age</td>
+			<td>salary</td>
+		</tr>
+		<tr ng-repeat="emp in employees">
+			<td> {{emp.name}}</td>
+			<td> {{emp.age}}</td>
+			<td> {{emp.salary}}</td>
+		</tr>
+		
+	</table>
+	
+</body>
+</html>

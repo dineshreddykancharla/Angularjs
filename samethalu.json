@@ -1,0 +1,16 @@
+{  "parent" : null,
+   "org_id":"845d0d53-de68-42c3-9007-c3d0e72c555e",
+   "category_id":"e58237f7-e040-4098-8d46-b84f8cdf7d83",
+   "purchase_tax":null,
+   "sale_tax":null,
+   "code":"982",
+   "name":"Mr. Destin Hoppe",
+   "is_purchased":false,
+   "is_sold":false,
+   "purchase_price":null,
+   "selling_price":null,
+   "purchase_includes_tax":false,
+   "sale_includes_tax":false,
+   "created_at":"2015-09-16 17:39:34",
+   "updated_at":"2015-09-16 17:39:34"
+}

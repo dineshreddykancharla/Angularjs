@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Exeample of Angular filter</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+	<script>
+		var mymodule=angular.module("mymodule",[]).controller('mycontroller',  function($scope){
+			var employee_details=[
+			{name:"arjun",age:"25",gender:"Male",salary:25000.789,dob:new Date("14 may 1994")},
+			{name:"Amit",age:"23",gender:"Male",salary:250000,dob:new Date("14 dec 1992")},
+			{name:"sita",age:"18",gender:"FeMale",salary:100000,dob:new Date("23 sep 2000")},
+			{name:"james namp",age:"27",gender:"Male",salary:3005000,dob:new Date("14 oct 1990")},
+			{name:"stella mary",age:"30",gender:"feMale",salary:985000,dob:new Date("14 jan 1994")}
+			];
+			$scope.list=employee_details;
+			$scope.select="name";
+		});
+	</script>
+	<style>
+		td, th{
+			border: 1px solid black;
+			padding: 5px;
+		}
+		table
+		{
+			border-collapse: collapse;
+		}
+	</style>
+</head>
+<body ng-app="mymodule">
+	<div ng-controller="mycontroller">
+		<select name="name" ng-model="select"><option value="name" >Name Ascending</option>
+		<option value="-name">Name Descending</option>
+		<option value="+age">age Descending</option>
+	<option value="-salary">salary Descending</option>
+<option value="salary">Salary ascending</option></select> <br> <br>
+		<table>
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>Age</th>
+					<th>Gender</th>
+					<th>Data of Birth</th>
+					<th>salary</th>
+					<th>salary in currency</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="emp in list | orderBy:select">
+					<td>{{emp.name| uppercase}}</td>
+					<td>{{emp.age}}</td>
+					<td>{{emp.gender | lowercase}}</td>
+					<td>{{emp.dob| date:"dd-MM-yyyy" }}</td>
+					<td>{{emp.salary|number:2}}</td>
+					<td>{{emp.salary| currency:"$":1}}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	
+</body>
+</html>

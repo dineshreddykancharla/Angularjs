@@ -1,17 +1,15 @@
-{
-	"list": [{
-			"name": "arjun",
-			"age": "25",
-			"gender": "Male",
-			"salary": 25000.789
+ [{
+ 		"name": "arjun",
+ 		"age": "25",
+ 		"gender": "Male",
+ 		"salary": 25000.789
 
-		},
-		{
-			"name": "Amit",
-			"age": "23",
-			"gender": "Male",
-			"salary": 250000
+ 	},
+ 	{
+ 		"name": "Amit",
+ 		"age": "23",
+ 		"gender": "Male",
+ 		"salary": 250000
 
-		}
-	]
-}
+ 	}
+ ]
